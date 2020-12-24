@@ -1,0 +1,53 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "c4c3c57fe524ef507afa15aacbd63dec5dfe7ddc039a4546db18eb66edcca325"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.7"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "asyncio": {
+            "hashes": [
+                "sha256:83360ff8bc97980e4ff25c964c7bd3923d333d177aa4f7fb736b019f26c7cb41",
+                "sha256:b62c9157d36187eca799c378e572c969f0da87cd5fc42ca372d92cdb06e7e1de",
+                "sha256:c46a87b48213d7464f22d9a497b9eef8c1928b68320a2fa94240f969f6fec08c",
+                "sha256:c4d18b22701821de07bd6aea8b53d21449ec0ec5680645e5317062ea21817d2d"
+            ],
+            "index": "pypi",
+            "version": "==3.4.3"
+        },
+        "asyncio-dgram": {
+            "hashes": [
+                "sha256:bd387d9b246e21d71506bd503a6a8cfaf697852881b4c417e921efdddcc252ad",
+                "sha256:dd59e918e21b484eee82490f994d6597797e7ebe1238f4e0d1779d7b9f47151b"
+            ],
+            "version": "==1.1.1"
+        },
+        "click": {
+            "hashes": [
+                "sha256:d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a",
+                "sha256:dacca89f4bfadd5de3d7489b7c8a566eee0d3676333fbb50030263894c38c0dc"
+            ],
+            "version": "==7.1.2"
+        },
+        "pywizlight": {
+            "hashes": [
+                "sha256:8b7faf042daff9ca4cb03575d535cd2f54db506c078b5add8b65f56d3e0522d3",
+                "sha256:ff79e0ab66e349d8bdf2bfb3503fd2ddcb0f39d1066ab4ccb208600e2421273a"
+            ],
+            "index": "pypi",
+            "version": "==0.3.6"
+        }
+    },
+    "develop": {}
+}

@@ -1,6 +1,7 @@
 import asyncio
 import logging
 import json
+import os
 import sys
 
 from pywizlight import PilotBuilder, wizlight
@@ -21,9 +22,18 @@ async def control(ip, sequence):
 
 
 def setup_logger():
+    if not os.environ.setdefault('LOG_LEVEL', "ERROR") in ['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL']:
+        deb_level = logging.ERROR
+    else:
+        if os.environ['LOG_LEVEL'] == "DEBUG": deb_level = logging.DEBUG
+        if os.environ['LOG_LEVEL'] == "INFO": deb_level = logging.INFO
+        if os.environ['LOG_LEVEL'] == "WARNING": deb_level = logging.WARNING
+        if os.environ['LOG_LEVEL'] == "ERROR": deb_level = logging.ERROR
+        if os.environ['LOG_LEVEL'] == "CRITICAL": deb_level = logging.CRITICAL
+
     global logger
     logger = logging.getLogger("CSL Logger")
-    logger.setLevel(logging.INFO)
+    logger.setLevel(deb_level)
     handler = logging.StreamHandler(sys.stdout)
     formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
     handler.setFormatter(formatter)
@@ -32,7 +42,7 @@ def setup_logger():
 
 if __name__ == '__main__':
     setup_logger()
-    logger.info("Reading scene file...")
+    logger.debug("Reading scene file...")
     with open(sys.argv[1]) as setup:
         obj_setup = json.load(setup)
     asyncio.run(dispatch(obj_setup))

@@ -10,7 +10,9 @@ from pywizlight import PilotBuilder, wizlight
 async def dispatch(setup):
     for bulb in setup:
         logger.info(f"Dispatching bulb with IP {bulb['ip']}")
-        asyncio.create_task(control(ip=bulb['ip'], sequence=bulb['sequence']))
+        await control(ip=bulb['ip'], sequence=bulb['sequence'])
+        # TODO: Add support for multiple bulbs at the same time. Using "asyncio.create_task()" seems to break the UDP
+        #       packet transmission. I need to investigate "asyncio" further
 
 
 async def control(ip, sequence):
@@ -46,4 +48,3 @@ if __name__ == '__main__':
     with open(sys.argv[1]) as setup:
         obj_setup = json.load(setup)
     asyncio.run(dispatch(obj_setup))
-
